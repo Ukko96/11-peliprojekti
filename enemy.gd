@@ -28,3 +28,23 @@ func shoot():
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = global_position
 	get_parent().add_child(bullet)
+
+# Funktio, kun hahmo osuu viholliseen
+func take_damage():
+	# 1. pisteen lisäys
+	GameManager.add_score_and_check_level(1)
+	
+	# 2. lataa vihollisen scenen ja kopioi
+	var enemy_scene = load("res://enemy.tscn")
+	var new_enemy = enemy_scene.instantiate()
+	
+	# 3. Random spawni viholliselle
+	var random_x = randf_range(100.0, 1000.0)
+	new_enemy.global_position = Vector2(random_x, 100)
+	
+	# 4. uus vihollinen peliin
+	get_parent().call_deferred("add_child", new_enemy)
+	
+	# 5. kun vihollinen kuolee
+	queue_free()
+	

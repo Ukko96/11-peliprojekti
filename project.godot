@@ -15,8 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Peliprojekti tiimi11"
+run/main_scene="uid://bwcba2tdl3f6d"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://bjt03wrksawtf"
 
 [rendering]
 
